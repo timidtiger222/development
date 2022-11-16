@@ -3,10 +3,29 @@
   margin: 5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Main-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-right: 35px;
+  align-items: start;
+}
+
+.Product-grid {
+  display: grid;
+  margin: 15px;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.Side-bar {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 35px 0 50px;
+  padding: 25px 20px 0;
+  border: 2px solid #d2d2d2;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px #d2d2d2;
 }
 
 .App-header {
@@ -18,17 +37,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
