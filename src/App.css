@@ -1,11 +1,12 @@
 .App {
   text-align: left;
   margin: 5rem;
+  font-family: '-apple-system';
 }
 
 .Main-grid {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
   margin-right: 35px;
   align-items: start;
 }
@@ -14,18 +15,17 @@
   display: grid;
   margin: 15px;
   grid-gap: 30px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
 }
 
 .Side-bar {
   display: flex;
   flex-direction: column;
-  margin: 15px 35px 0 50px;
-  padding: 25px 20px 0;
-  border: 2px solid #d2d2d2;
+  margin: 15px 35px 0 0px;
+  padding: 5px 20px 5px 20px;
   border-radius: 10px;
-  box-shadow: 0 1px 1px #d2d2d2;
+  background-color: rgb(245, 232, 218);
 }
 
 .App-header {
@@ -37,4 +37,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.h3, h3 {
+  margin-bottom: 2px;
+  font-family: "dogica";
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.h1, h1 {
+  font-family: "dogica";
+  font-size: 35px;
+  letter-spacing: 3px;
+}
+
+@font-face {
+  font-family: 'dogica';
+  src: local('dogica'), url(./dogica/TTF/dogica.ttf) format('truetype');
 }
