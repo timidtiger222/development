@@ -37,10 +37,10 @@ export default function ProductItem(props) {
                 ${props.item.price}
               </Typography>
               </Typography>
-              <Typography variant="body1" color="text.secondary" sx={{ fontFamily: "dogica", fontSize: 10} }>
+              <Typography variant="body1" color="text.secondary" sx={{ fontFamily: "dogica", fontSize: 11} }>
                 SIZE: {props.item.size}
               </Typography>
-              <Typography variant="body1" color="text.secondary" sx={{ fontFamily: "dogica", fontSize: 10} }>
+              <Typography variant="body1" color="text.secondary" sx={{ fontFamily: "dogica", fontSize: 11} }>
                 FUR LENGTH: {props.item.size}
               </Typography>
               <br></br>

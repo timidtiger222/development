@@ -10,16 +10,16 @@ function App() {
   const productList = [
     { name: "AKITA", price: "300", size: "Large", category2: "hi", description: "blahblah", image: "images/akita.png"},
     { name: "BEAGLE", price: "150", size: "Small", category2: "hi", description: "blahblah", image: "images/beagle.png"},
-    { name: "Sad Plant", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/pomeranian.png"},
-    { name: "Smart Plant", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Sleepy Plant", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Cute Plant", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Happy Plant", price: "30", size: "Large", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Sad Plant", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Smart Plant", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Sleepy Plant", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Smart Plant", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "hihi"},
-    { name: "Sleepy Plant", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "hihi"}
+    { name: "DALMATION", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/dalmation.png"},
+    { name: "PUG", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "images/pug.png"},
+    { name: "GOLDEN RETRIEVER", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/goldenretriever.png"},
+    { name: "BICHON FRISE", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "images/bichonfrise.png"},
+    { name: "DACHSUND", price: "30", size: "Large", category2: "hi", description: "blahblah", image: "images/dachsund.png"},
+    { name: "ST.BERNARD", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/stbernard.png"},
+    { name: "TIBETAN MASTIFF", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "images/tibetanmastiff.png"},
+    { name: "CHIHUAHUA", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/chihuahua.png"},
+    { name: "CHOW CHOW", price: "30", size: "Medium", category2: "hi", description: "blahblah", image: "images/chowchow.png"},
+    { name: "BORDER COLLIE", price: "30", size: "Desktop", category2: "hi", description: "blahblah", image: "images/bordercollie.png"}
    ]
 
   /*const filteredData = productList.filter(myFilterFunction)*/
