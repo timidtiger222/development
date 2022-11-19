@@ -5,7 +5,7 @@ import {
 export default function Favorites (props) {
   const createEntry = (i) => {
     return (
-      <List>{i.name}</List>
+      <List sx={{ fontFamily: "dogica", fontSize: 16} }>{i.name} </List>
     );
   };
   

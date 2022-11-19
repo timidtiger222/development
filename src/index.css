@@ -11,10 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-@font-face {
-  font-family: 'dogica';
-  src: local('dogica'), url(./dogica/TTF/dogica.ttf) format('ttf');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
-}
