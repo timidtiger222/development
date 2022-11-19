@@ -55,7 +55,7 @@ function App() {
       <br></br>
         <Nav onSelect={selectFilterType}>
       <Nav.Item>
-        <Nav.Link eventKey="All">View All</Nav.Link>
+        <Nav.Link eventKey="All"> View All</Nav.Link>
       </Nav.Item>
       <br></br>
       <h3>SIZE</h3>

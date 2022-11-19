@@ -53,6 +53,9 @@ a:hover {
 
 a:focus {
   color: rgb(99, 26, 26)!important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
 
 .nav-item{
