@@ -19,24 +19,48 @@
   grid-template-rows: 1fr;
 }
 
+.Side-container {
+  display: grid;
+  grid-template-rows: 0.2fr 0.5fr 0.3fr 0.5fr;
+}
+
 .Side-bar {
   display: flex;
   flex-direction: column;
-  margin: 15px 20px 15px 0px;
+  margin: 10px 20px 10px 0px;
   padding: 5px 20px 15px 20px;
   border-radius: 10px;
   background-color: rgb(250, 244, 236);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Top-side-bar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 10px 20px 10px 0px;
+  padding: 15px 20px 15px 20px;
+  border-radius: 10px;
+  background-color: brown !important;
+  text-align: center;
+}
+
+.Team-bar {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px 5px 0px;
+  padding: 5px 20px 15px 20px;
+  border-radius: 10px;
+  background-color: rgb(241, 215, 180);
+}
+
+.Top-side-bar .nav-link{
+  color: white!important;
+}
+
+.Top-side-bar a:hover{
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
 
 .nav-link{
@@ -49,6 +73,9 @@
 
 a:hover {
   color: rgb(99, 26, 26) !important;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
 
 a:focus {
@@ -75,7 +102,7 @@ a:focus {
 
 .p, p {
   font-family: "dogica";
-  font-size: 10px;
+  font-size: 11px;
   color: grey;
 }
 
@@ -85,7 +112,7 @@ a:focus {
   font-family: "dogica";
   font-size: 11px;
   letter-spacing: 3px;
-  color: grey;
+  color: rgb(104, 104, 104);
 }
 
 .h1, h1 {

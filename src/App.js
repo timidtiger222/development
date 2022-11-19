@@ -1,6 +1,6 @@
 import './App.css';
 import ProductItem from './components/ProductItem';
-import FilterBar from './components/FilterBar';
+import SortBar from './components/SortBar';
 import Favorites from './components/Favorites';
 import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
@@ -45,20 +45,28 @@ function App() {
   const filteredData = productList.filter(matchesFilterType)
 
   return (
+    
     <div className="App">
 
-      <h1>CHOOSE YOUR SIDEKICK</h1> 
+      <h1>CHOOSE YOUR SIDEKICK(S)!</h1> 
+      <h3>Build the perfect pack of dogs by clicking on the "Add to Team" button.</h3> 
+
+      <br></br>
 
       <div className="Main-grid">
-        
-      <div className="Side-bar">
-      <br></br>
-        <Nav onSelect={selectFilterType}>
+
+      <div className="Side-container">
+      <div className="Top-side-bar">
+      <Nav onSelect={selectFilterType}>
       <Nav.Item>
-        <Nav.Link eventKey="All"> View All</Nav.Link>
+        <Nav.Link eventKey="All"> VIEW ALL </Nav.Link>
       </Nav.Item>
-      <br></br>
+      </Nav>
+      </div>
+
+      <div className="Side-bar">
       <h3>SIZE</h3>
+      <Nav onSelect={selectFilterType}>
       <Nav.Item>
         <Nav.Link eventKey="Large">Large</Nav.Link>
       </Nav.Item>
@@ -70,10 +78,10 @@ function App() {
       </Nav.Item>
       </Nav>
 
-        <br></br>
+      <br></br>
 
-        <Nav onSelect={selectFilterType}>
       <h3>BEST FOR</h3>
+        <Nav onSelect={selectFilterType}>
       <Nav.Item>
         <Nav.Link eventKey="Hunting">Hunting</Nav.Link>
       </Nav.Item>
@@ -84,19 +92,20 @@ function App() {
         <Nav.Link eventKey="Companionship">Companionship</Nav.Link>
       </Nav.Item>
       </Nav>
+      </div>
 
-        <br></br>
 
+      <div className="Side-bar">
         <h3>SORT</h3>
-        <FilterBar/>
+        <SortBar/>
+      </div>
 
-        <br></br>
-
-        <h3>FAVORITES</h3>
+      <div className="Team-bar">
+        <h3>CURRENT TEAM</h3>
         <Favorites list={favorites}/>
         <p>Price:${total}</p>
+        </div>
       </div>
-      
 
       <div className="Product-grid">
       {filteredData.map((item, index) => ( 

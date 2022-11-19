@@ -5,7 +5,7 @@ import {
   Checkbox,
 } from '@mui/material';
 
-export default function FilterBar(props) {
+export default function SortBar(props) {
     return (
         <FormGroup >
             <FormControlLabel control={<Checkbox defaultChecked /> } label="PRICE" />

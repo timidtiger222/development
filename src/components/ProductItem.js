@@ -15,7 +15,7 @@ export default function ProductItem(props) {
 
   const [currentButtonVariant, setCurrentButtonVariant] = useState('contained');
   const newList = props.favorites.filter((item) => item.name !== props.item.name);
-  const [buttonText, setButtonText] = useState('Take me home!');
+  const [buttonText, setButtonText] = useState('Add to Team');
 
 
   const handleClick = () => {
@@ -24,14 +24,14 @@ export default function ProductItem(props) {
       if (props.favorites.includes(props.item) === false) {
         props.setTotal(Number(props.total) + Number(props.item.price));
         props.setFavorites([...props.favorites, props.item])
-        setButtonText('Nevermind');
+        setButtonText('Remove from Team');
     }
   }
     else if (currentButtonVariant === 'outlined') {
         props.setTotal(Number(props.total) - Number(props.item.price));
         props.setFavorites(newList);
         setCurrentButtonVariant('contained');
-        setButtonText('Take me home!');
+        setButtonText('Add to Team');
     }
   }
   
@@ -64,7 +64,7 @@ export default function ProductItem(props) {
               </Typography>
             </CardContent>
           <CardActions sx={{ backgroundColor: 'rgb(236, 236, 236)'} }>
-            <Button sx={{ fontFamily: "dogica", fontSize: 10, margin: 1.5} } variant={currentButtonVariant} startIcon={<Favorite />} onClick={handleClick}> {buttonText} </Button>
+            <Button sx={{ fontFamily: "dogica", fontSize: 11, margin: 1.5} } variant={currentButtonVariant} startIcon={<Favorite />} onClick={handleClick}> {buttonText} </Button>
           </CardActions>
         </Card>
       );
