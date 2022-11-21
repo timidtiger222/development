@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import Add from '@mui/icons-material/Add';
 import Clear from '@mui/icons-material/Clear';
+import Favorite from '@mui/icons-material/Favorite';
 
 /* Card template from mui/material */
 export default function ProductItem(props) {
@@ -53,7 +54,7 @@ export default function ProductItem(props) {
               <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "dogica", fontSize: 17, fontWeight: 900} }>
                 {props.item.name}
                 <Typography variant="h6" color="text.primary" sx={{ fontFamily: "dogica", fontSize: 15} }>
-                ${props.item.price}
+                {<Favorite style={{verticalAlign:"middle", fontSize: 18, color: "rgb(181, 16, 16)"}}></Favorite>} {props.item.price} HP
               </Typography>
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ fontFamily: "dogica", fontSize: 11} }>

@@ -5,6 +5,7 @@ import Team from './components/Team';
 import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
 import {BottomNavigation, Checkbox, FormControlLabel, FormGroup} from "@mui/material"
+import Favorite from '@mui/icons-material/Favorite';
 
 function App() {
 
@@ -42,10 +43,11 @@ function App() {
 
   function selectFilterType (eventKey) {
     setList(filteredData);
+    console.log(currentList);
     setType(eventKey);
     };
-
-  const [currentList, setList] = useState(filteredData);
+  
+  const [currentList, setList] = useState(productList);
 
   const sortedArray = [...productList].sort((a, b) => {
     return a.price - b.price;
@@ -56,12 +58,13 @@ function App() {
       setDefault(true);
       setList(sortedArray);
     };
-
+    
   return (
     <div className="App">
 
-      <h1>CHOOSE YOUR SIDEKICK(S)!</h1> 
-      <h3>Build the perfect pack of dogs by clicking on the "Add to Team" button.</h3> 
+      <h1>CHOOSE YOUR SIDEKICKS!</h1> 
+      <h4>Build the perfect pack of dogs by clicking on the "Add to Team" button, and "Remove from Team" to remove.
+        Watch your pack's total HP (Health Points) increase as you add them to your team! You can filter by size or specialty, and sort by HP.</h4> 
 
       <br></br>
       <br></br>
@@ -114,13 +117,14 @@ function App() {
 
       <div className="Side-bar">
         <h3>SORT BY</h3>
-        <SortBar defaultState={defaultState} handleClick={handleClick} label="Price: Low to High"></SortBar>
+        <SortBar defaultState={defaultState} handleClick={handleClick} label="HP: Low to High"></SortBar>
       </div>
 
       <div className="Team-bar">
         <h3>CURRENT TEAM</h3>
         <Team list={favorites}/>
-        <p>Price:${total}</p>
+        <div className="horizontal-line"></div>
+        <h2>TOTAL: {<Favorite style={{verticalAlign:"middle", fontSize: 16, color: "rgb(181, 16, 16)"}}></Favorite>} {total}  HP</h2>
         </div>
       </div>
 
