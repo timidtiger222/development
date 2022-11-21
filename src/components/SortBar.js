@@ -1,14 +1,15 @@
 import React from 'react';
 import {
-  FormGroup,
+  RadioGroup,
+  Radio,
   FormControlLabel,
-  Checkbox,
 } from '@mui/material';
 
 export default function SortBar(props) {
+
     return (
-        <FormGroup >
-            <FormControlLabel control={<Checkbox defaultChecked /> } label="PRICE" />
-        </FormGroup>
+        <RadioGroup >
+      <FormControlLabel checked={props.defaultState} control={<Radio onClick={props.handleClick}/>} sx={{ '& .MuiTypography-root': {fontSize: 11, fontFamily: "dogica", fontWeight: 900} }} label= {props.label} sortType={props.sortType} />
+       </RadioGroup>
     )
 }

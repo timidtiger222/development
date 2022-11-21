@@ -8,7 +8,8 @@ import {
   CardActions,
   Button,
 } from '@mui/material';
-import Favorite from '@mui/icons-material/Favorite';
+import Add from '@mui/icons-material/Add';
+import Clear from '@mui/icons-material/Clear';
 
 /* Card template from mui/material */
 export default function ProductItem(props) {
@@ -16,6 +17,7 @@ export default function ProductItem(props) {
   const [currentButtonVariant, setCurrentButtonVariant] = useState('contained');
   const newList = props.favorites.filter((item) => item.name !== props.item.name);
   const [buttonText, setButtonText] = useState('Add to Team');
+  const [icon, setIcon] = useState(<Add></Add>);
 
 
   const handleClick = () => {
@@ -25,6 +27,7 @@ export default function ProductItem(props) {
         props.setTotal(Number(props.total) + Number(props.item.price));
         props.setFavorites([...props.favorites, props.item])
         setButtonText('Remove from Team');
+        setIcon(<Clear></Clear>)
     }
   }
     else if (currentButtonVariant === 'outlined') {
@@ -32,6 +35,7 @@ export default function ProductItem(props) {
         props.setFavorites(newList);
         setCurrentButtonVariant('contained');
         setButtonText('Add to Team');
+        setIcon(<Add></Add>)
     }
   }
   
@@ -46,9 +50,9 @@ export default function ProductItem(props) {
             />
             </CardContent>
             <CardContent sx={{ margin: 0, backgroundColor: 'rgb(236, 236, 236)'} }>
-              <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "dogica", fontSize: 18, fontWeight: 900} }>
+              <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "dogica", fontSize: 17, fontWeight: 900} }>
                 {props.item.name}
-                <Typography variant="h6" color="text.primary" sx={{ fontFamily: "dogica", fontSize: 16} }>
+                <Typography variant="h6" color="text.primary" sx={{ fontFamily: "dogica", fontSize: 15} }>
                 ${props.item.price}
               </Typography>
               </Typography>
@@ -64,7 +68,7 @@ export default function ProductItem(props) {
               </Typography>
             </CardContent>
           <CardActions sx={{ backgroundColor: 'rgb(236, 236, 236)'} }>
-            <Button sx={{ fontFamily: "dogica", fontSize: 11, margin: 1.5} } variant={currentButtonVariant} startIcon={<Favorite />} onClick={handleClick}> {buttonText} </Button>
+            <Button sx={{ fontFamily: "dogica", fontSize: 11, margin: 1.5} } variant={currentButtonVariant} startIcon={icon} onClick={handleClick}> {buttonText} </Button>
           </CardActions>
         </Card>
       );

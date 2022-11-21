@@ -1,10 +1,10 @@
 import './App.css';
 import ProductItem from './components/ProductItem';
 import SortBar from './components/SortBar';
-import Favorites from './components/Favorites';
+import Team from './components/Team';
 import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
-import {BottomNavigation} from "@mui/material"
+import {BottomNavigation, Checkbox, FormControlLabel, FormGroup} from "@mui/material"
 
 function App() {
 
@@ -22,15 +22,11 @@ function App() {
     { name: "CHOW CHOW", price: "300", size: "Average", bestfor: "Guarding", description: "The distinctive-looking Chow Chow dog breed has a proud, independent spirit that some describe as catlike.", image: "images/chowchow.png"},
     { name: "BORDER COLLIE", price: "410", size: "Average", bestfor: "Guarding", description: "This highly intelligent, graceful dog is born with an instinct to work and responds well to training.", image: "images/bordercollie.png"}
    ]
-
+   
   const [total, setTotal] = useState(0);
   const [favorites, setFavorites] = useState([]);
+  
   const [type, setType] = useState("All");
-
-  const selectFilterType = eventKey => {
-    setType(eventKey);
-    };
-
   const matchesFilterType = item => {
     // all items should be shown when no filter is selected
     if (type === "All") {
@@ -42,15 +38,32 @@ function App() {
     }
     }
 
-  const filteredData = productList.filter(matchesFilterType)
+  const filteredData = productList.filter(matchesFilterType);
+
+  function selectFilterType (eventKey) {
+    setList(filteredData);
+    setType(eventKey);
+    };
+
+  const [currentList, setList] = useState(filteredData);
+
+  const sortedArray = [...productList].sort((a, b) => {
+    return a.price - b.price;
+    })
+
+  const [defaultState, setDefault] = useState(false);
+  function handleClick() {
+      setDefault(true);
+      setList(sortedArray);
+    };
 
   return (
-    
     <div className="App">
 
       <h1>CHOOSE YOUR SIDEKICK(S)!</h1> 
       <h3>Build the perfect pack of dogs by clicking on the "Add to Team" button.</h3> 
 
+      <br></br>
       <br></br>
 
       <div className="Main-grid">
@@ -78,6 +91,10 @@ function App() {
       </Nav.Item>
       </Nav>
 
+      <FormGroup onChange={selectFilterType}>
+      <FormControlLabel checked={type.Large} control={<Checkbox value="Large"/>} label="Large" />
+      </FormGroup>
+
       <br></br>
 
       <h3>BEST FOR</h3>
@@ -96,19 +113,19 @@ function App() {
 
 
       <div className="Side-bar">
-        <h3>SORT</h3>
-        <SortBar/>
+        <h3>SORT BY</h3>
+        <SortBar defaultState={defaultState} handleClick={handleClick} label="Price: Low to High"></SortBar>
       </div>
 
       <div className="Team-bar">
         <h3>CURRENT TEAM</h3>
-        <Favorites list={favorites}/>
+        <Team list={favorites}/>
         <p>Price:${total}</p>
         </div>
       </div>
 
       <div className="Product-grid">
-      {filteredData.map((item, index) => ( 
+      {currentList.map((item, index) => ( 
         <ProductItem item={item} index={index} setTotal={setTotal} total={total} 
         setFavorites={setFavorites} favorites={favorites}/> 
       ))}
