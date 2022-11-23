@@ -6,6 +6,7 @@ import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
 import {BottomNavigation, Checkbox, FormControlLabel, FormGroup} from "@mui/material"
 import Favorite from '@mui/icons-material/Favorite';
+import { DonutLarge } from '@mui/icons-material';
 
 function App() {
 
@@ -28,24 +29,24 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   
   const [type, setType] = useState("All");
-  const matchesFilterType = item => {
+  const matchesFilterType = (item, eventKey) => {
     // all items should be shown when no filter is selected
-    if (type === "All") {
+    if (eventKey === "All") {
     return true 
-    } else if (type === item.size || type === item.bestfor) {
+    } else if (eventKey === item.size) {
     return true 
+    } else if (eventKey === item.bestfor) {
+    return true
     } else {
     return false
     }
     }
 
-  const filteredData = productList.filter(matchesFilterType);
-
   function selectFilterType (eventKey) {
-    setList(filteredData);
-    console.log(currentList);
     setType(eventKey);
-    };
+    const filteredData = productList.filter((item) => matchesFilterType(item, eventKey))
+    setList(filteredData);
+};
   
   const [currentList, setList] = useState(productList);
 
@@ -94,13 +95,9 @@ function App() {
       </Nav.Item>
       </Nav>
 
-      <FormGroup onChange={selectFilterType}>
-      <FormControlLabel checked={type.Large} control={<Checkbox value="Large"/>} label="Large" />
-      </FormGroup>
-
       <br></br>
 
-      <h3>BEST FOR</h3>
+      <h3>SPECIALTY</h3>
         <Nav onSelect={selectFilterType}>
       <Nav.Item>
         <Nav.Link eventKey="Hunting">Hunting</Nav.Link>
@@ -112,12 +109,17 @@ function App() {
         <Nav.Link eventKey="Companionship">Companionship</Nav.Link>
       </Nav.Item>
       </Nav>
+
+      <FormGroup>
+        <FormControlLabel control={<Checkbox eventKey={"Large"} onClick={selectFilterType} />} label="Large" />
+      </FormGroup>
+
       </div>
 
 
       <div className="Side-bar">
         <h3>SORT BY</h3>
-        <SortBar defaultState={defaultState} handleClick={handleClick} label="HP: Low to High"></SortBar>
+        <SortBar defaultState={defaultState} handleClick={handleClick} label="HP (Low to High)"></SortBar>
       </div>
 
       <div className="Team-bar">
