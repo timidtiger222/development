@@ -36,7 +36,7 @@ export default function ProductItem(props) {
         props.setFavorites(newList);
         setCurrentButtonVariant('contained');
         setButtonText('Add to Team');
-        setIcon(<Add></Add>)
+        setIcon(<Add></Add>);
     }
   } 
 
