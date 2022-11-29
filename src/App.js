@@ -4,9 +4,8 @@ import SortBar from './components/SortBar';
 import Team from './components/Team';
 import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
-import {BottomNavigation, Checkbox, FormControlLabel, FormGroup} from "@mui/material"
+import {BottomNavigation} from "@mui/material"
 import Favorite from '@mui/icons-material/Favorite';
-import { DonutLarge } from '@mui/icons-material';
 
 function App() {
 
@@ -109,10 +108,6 @@ function App() {
         <Nav.Link eventKey="Companionship">Companionship</Nav.Link>
       </Nav.Item>
       </Nav>
-
-      <FormGroup>
-        <FormControlLabel control={<Checkbox eventKey={"Large"} onClick={selectFilterType} />} label="Large" />
-      </FormGroup>
 
       </div>
 

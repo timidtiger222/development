@@ -16,7 +16,6 @@ import Favorite from '@mui/icons-material/Favorite';
 export default function ProductItem(props) {
 
   const [currentButtonVariant, setCurrentButtonVariant] = useState('contained');
-  const [currentItem, setCurrentItem] = useState({ key: '' });
   const newList = props.favorites.filter((item) => item.name !== props.item.name);
   const [buttonText, setButtonText] = useState('Add to Team');
   const [icon, setIcon] = useState(<Add></Add>);
@@ -25,9 +24,6 @@ export default function ProductItem(props) {
   const handleClick = () => {
     if (currentButtonVariant === 'contained') {
       setCurrentButtonVariant('outlined');
-      setCurrentItem ({
-        key: props.item,
-      });
       if (props.favorites.includes(props.item) === false) {
         props.setTotal(Number(props.total) + Number(props.item.price));
         props.setFavorites([...props.favorites, props.item])
